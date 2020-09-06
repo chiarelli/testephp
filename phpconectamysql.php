@@ -1,4 +1,5 @@
 <?php
+error_reporting( E_ALL );
 
 
 $servidor = 'testephp.infoideias.com.br';
@@ -22,7 +23,7 @@ echo "<BR><br>";
 
 // conectando com PDO 
    
-$con = new PDO("mysql:host=192.168.1.24;dbname=teste;charset=utf8", "root", "british@admin");
+$con = new PDO("mysql:host=".$servidor.";dbname=".$banco, $usuario, $senha);
     
    
 $rs = $con->prepare($sql);
