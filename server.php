@@ -2,10 +2,10 @@
 
 error_reporting( E_ALL );
 
-$servidor = 'mysql';
-$usuario = 'wordpress';
-$senha = 'wordpress';
-$banco = 'infoideias_imobiliaria';
+$servidor = 'testephp.infoideias.com.br';
+$usuario = 'phalcont_teste01';
+$senha = 'Ph01al98!@#';
+$banco = 'phalcont_teste01';
 
 require_once dirname(__FILE__) . '/includes/Infoideias_Server.php';
 
