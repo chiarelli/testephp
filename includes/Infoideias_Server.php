@@ -16,6 +16,8 @@ class Infoideias_Server {
     
     public function __construct($servidor, $usuario, $senha, $banco) {
         $this->mysqli = new mysqli($servidor, $usuario, $senha, $banco);
+        $this->mysqli->set_charset("utf8");
+        
         if (mysqli_connect_errno()) {
             trigger_error(mysqli_connect_error());            
         }
@@ -60,10 +62,12 @@ class Infoideias_Server {
             // lançar erro php 404
         }
         
+        
         $sql = "SELECT * FROM conteudo WHERE imobiliariaID = {$imobiliaria_id}";
         
         $result = $this->mysqli->query($sql);
         $rows = $result->fetch_all(MYSQLI_ASSOC);
+        
         
         $items = [];
         foreach ($rows as $row) {
@@ -73,7 +77,6 @@ class Infoideias_Server {
                 $items[] = $row;
             }
         }
-        
         
         exit(json_encode($items));
     }
